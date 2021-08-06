@@ -1,0 +1,4 @@
+CreateFunction({
+  "name": "GetShowsByCategory",
+  "body": Query(Lambda(["category", "parentOnly"], Map(Paginate(Match(Index("shows_by_category"), [Var("parentOnly"), Select(["ref"], Get(Match(Index("categories_by_name"), Var("category"))))])), Lambda("var", Get(Var("var"))))))
+})

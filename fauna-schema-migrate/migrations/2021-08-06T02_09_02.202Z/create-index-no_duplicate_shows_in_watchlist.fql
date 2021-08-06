@@ -1,0 +1,10 @@
+CreateIndex({
+  "name": "no_duplicate_shows_in_watchlist",
+  "unique": true,
+  "source": Collection("Watchlist"),
+  "terms": [{
+    "field": ["data", "user"]
+  }, {
+    "field": ["data", "show"]
+  }]
+})

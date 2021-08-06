@@ -1,0 +1,4 @@
+CreateFunction({
+  "name": "GetWatchlist",
+  "body": Query(Lambda("", Map(Paginate(Match(Index("users_watchlist"), Call(Function("ExtCurrentIdentity"), []))), Lambda(["show", "ref"], Get(Var("show"))))))
+})

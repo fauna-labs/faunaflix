@@ -1,0 +1,4 @@
+CreateFunction({
+  "name": "ExtCurrentIdentity",
+  "body": Query(Lambda([], If(IsRef(CurrentIdentity()), CurrentIdentity(), Select(["ref"], Get(Match(Index("users_by_email"), CurrentIdentity()))))))
+})

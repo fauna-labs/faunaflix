@@ -1,0 +1,152 @@
+CreateRole(
+  {
+    name: "loggedin",
+    privileges: [
+      {
+        resource: Function("GetShowsByCategory"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("GetEpisodesByShowId"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("GetShowHistory"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("AddToWatchlist"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("InMyWatchlist"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("AddToHistory"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("Like"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("Liked"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("GetWatchlist"),
+        actions: { call: true }
+      },
+      {
+        resource: Function("ExtCurrentIdentity"),
+        actions: { call: true }
+      },
+      {
+        resource: Collection("Categories"),
+        actions: {
+          read: true,
+          write: false,
+          create: false,
+          delete: false,
+          history_read: false,
+          history_write: false,
+          unrestricted_read: false
+        }
+      },
+      {
+        resource: Collection("Shows"),
+        actions: {
+          read: true,
+          write: true,
+          create: false,
+          delete: false,
+          history_read: false,
+          history_write: false,
+          unrestricted_read: false
+        }
+      },
+      {
+        resource: Collection("History"),
+        actions: {
+          read: true,
+          write: true,
+          create: true,
+          delete: true,
+          history_read: false,
+          history_write: false,
+          unrestricted_read: false
+        }
+      },
+      {
+        resource: Collection("Watchlist"),
+        actions: {
+          read: true,
+          write: true,
+          create: true,
+          delete: true,
+          history_read: false,
+          history_write: false,
+          unrestricted_read: false
+        }
+      },
+      {
+        resource: Collection("Stats"),
+        actions: {
+          read: true,
+          write: true,
+          create: true,
+          delete: true,
+          history_read: false,
+          history_write: false,
+          unrestricted_read: false
+        }
+      },
+      {
+        resource: Index("shows_by_category"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+      {
+        resource: Index("categories_by_name"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+      {
+        resource: Index("watch_history_by_user"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+      {
+        resource: Index("no_duplicate_shows_in_watchlist"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+      {
+        resource: Index("no_duplicate_likes"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+      {
+        resource: Index("users_watchlist"),
+        actions: {
+          unrestricted_read: false,
+          read: true
+        }
+      },
+    ],
+    membership: [
+      { resource: Collection("Users") }
+    ]
+  }  
+)

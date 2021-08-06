@@ -1,0 +1,8 @@
+CreateIndex({
+  "name": "shows_by_name",
+  "unique": true,
+  "source": Collection("Shows"),
+  "terms": [{
+    "field": ["data", "name"]
+  }]
+})

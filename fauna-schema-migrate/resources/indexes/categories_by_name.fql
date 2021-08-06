@@ -1,0 +1,12 @@
+CreateIndex({
+  name: "categories_by_name",
+  source: Collection("Categories"),
+  unique: true,
+  terms: [
+    { field: ["data", "name"] }
+  ],
+  values: [
+    { field: ["data", "name"] },
+    { field: ["ref"] }
+  ]  
+})

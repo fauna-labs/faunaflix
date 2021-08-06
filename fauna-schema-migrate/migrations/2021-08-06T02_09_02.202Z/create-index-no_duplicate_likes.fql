@@ -1,0 +1,10 @@
+CreateIndex({
+  "name": "no_duplicate_likes",
+  "unique": true,
+  "source": Collection("Stats"),
+  "terms": [{
+    "field": ["data", "user"]
+  }, {
+    "field": ["data", "show"]
+  }]
+})

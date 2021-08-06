@@ -1,0 +1,11 @@
+CreateIndex({
+  name: "users_watchlist",
+  source: Collection("Watchlist"),
+  terms: [
+    { field: ["data", "user"] }
+  ],
+  values: [
+    { field: ["data", "show"] },
+    { field: ["ref"] }
+  ],  
+})

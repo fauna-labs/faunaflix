@@ -1,0 +1,9 @@
+CreateRole({
+  "name": "loginUDFRole",
+  "privileges": [{
+    "resource": Index("users_by_email"),
+    "actions": {
+      "read": true
+    }
+  }]
+})

@@ -1,0 +1,39 @@
+CreateFunction({
+    name: "AddOrUpdateEpisode",
+    body: Query(
+      Lambda(
+        ["name", "url", "image", "categories", "parent"],
+        Let(
+          {
+            match: Match(Index('shows_by_name'), Var('name')),
+            noMatch: IsEmpty(Paginate(Var('match'))),
+            ref: If(Var("noMatch"), null, Select(["ref"], Get(Var('match')))),
+            parentRef: If(IsNull(Var("parent")), null, Select(["ref"], Get(Match(Index("shows_by_name"), Var("parent"))))),
+            categoriesRefs: Map(
+              Var("categories"),
+              Lambda(
+                "category",
+                Select(["ref"], Get(Match(Index("categories_by_name"), Var("category"))))
+              )
+            ),
+          },
+          If(
+            Var("noMatch"),
+            Call(Function('AddEpisode'), [Var("name"), Var("url"), Var("image"), Var("categoriesRefs"), Var("parentRef")]),
+            Update(
+              Var('ref'),
+              {
+                data: {
+                  asset: {
+                    url: Var("url"),
+                    image: Var("image")
+                  },
+                  categories: Var("categoriesRefs")
+                }
+              }
+            )
+          )
+        )
+      )
+    )
+})

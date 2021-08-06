@@ -1,0 +1,18 @@
+CreateFunction({
+  "name": "AddToHistory",
+  "body": Query(Lambda(["id", "time"], Let([{
+    "ref": Ref(Collection("Shows"), Var("id"))
+  }, {
+    "doc": Get(Var("ref"))
+  }], Do(Create(Collection("History"), {
+    "data": {
+      "user": Call(Function("ExtCurrentIdentity"), []),
+      "show": Var("ref"),
+      "startTime": Var("time")
+    }
+  }), Update(Var("ref"), {
+    "data": {
+      "viewed": Add(Select(["data", "viewed"], Var("doc")), 1)
+    }
+  })))))
+})

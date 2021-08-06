@@ -1,0 +1,8 @@
+CreateIndex({
+  name: "no_duplicate_previews",
+  unique: true,
+  source: Collection("Previews"),
+  terms: [
+    { field: ["data", "show"] }
+  ],  
+})

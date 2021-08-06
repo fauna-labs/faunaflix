@@ -1,0 +1,26 @@
+CreateRole({
+  "name": "anonymousUDF",
+  "privileges": [{
+    "resource": Collection("Previews"),
+    "actions": {
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "history_read": false,
+      "history_write": false,
+      "unrestricted_read": false
+    }
+  }, {
+    "resource": Collection("Shows"),
+    "actions": {
+      "read": true,
+      "write": false,
+      "create": false,
+      "delete": false,
+      "history_read": false,
+      "history_write": false,
+      "unrestricted_read": false
+    }
+  }]
+})

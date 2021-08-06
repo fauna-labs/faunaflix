@@ -1,0 +1,29 @@
+CreateFunction(
+  {
+    name: "GetShowHistory",
+    body: Query(
+      Lambda(
+        ["id", "limit"],
+        Map(
+          Paginate(
+            Match(Index("watch_history_by_user"), [
+              Ref(Collection("Shows"), Var("id")),
+              Call(Function("ExtCurrentIdentity"), [])
+            ]),
+            { size: Var("limit") }
+          ),
+          Lambda(
+            ["start", "ref"],
+            Let(
+              { doc: Get(Var("ref")) },
+              {
+                show: Get(Select(["data", "show"], Var("doc"))),
+                startTime: Var("start")
+              }
+            )
+          )
+        )
+      )
+    )
+  }  
+)

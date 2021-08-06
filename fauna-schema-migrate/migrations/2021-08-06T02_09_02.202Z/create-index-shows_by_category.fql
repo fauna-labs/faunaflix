@@ -1,0 +1,16 @@
+CreateIndex({
+  "name": "shows_by_category",
+  "source": [{
+    "collection": Collection("Shows"),
+    "fields": {
+      "null_parent": Query(Lambda("doc", Let([{
+        "data": Select("data", Var("doc"))
+      }], Equals(ContainsField("parent", Var("data")), false))))
+    }
+  }],
+  "terms": [{
+    "binding": "null_parent"
+  }, {
+    "field": ["data", "categories"]
+  }]
+})

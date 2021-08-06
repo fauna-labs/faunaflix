@@ -1,0 +1,51 @@
+CreateFunction(
+  {
+    name: "Like",
+    body: Query(
+      Lambda(
+        "id",
+        Let(
+          {
+            ref: Ref(Collection("Shows"), Var("id")),
+            doc: Get(Var("ref"))
+          },
+          If(
+            Call(Function("Liked"), Var("id")),
+            Do(
+              Delete(
+                Select(
+                  ["ref"],
+                  Get(
+                    Match(Index("no_duplicate_likes"), [
+                      Call(Function("ExtCurrentIdentity"), []),
+                      Var("ref")
+                    ])
+                  )
+                )
+              ),
+              Update(Var("ref"), {
+                data: {
+                  likes: Subtract(Select(["data", "likes"], Var("doc")), 1)
+                }
+              })
+            ),
+            Do(
+              Create(Collection("Stats"), {
+                data: {
+                  user: Call(Function("ExtCurrentIdentity"), []),
+                  show: Var("ref"),
+                  like: true
+                }
+              }),
+              Update(Var("ref"), {
+                data: {
+                  likes: Add(Select(["data", "likes"], Var("doc")), 1)
+                }
+              })
+            )
+          )
+        )
+      )
+    )
+  }  
+)

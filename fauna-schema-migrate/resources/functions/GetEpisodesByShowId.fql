@@ -1,0 +1,51 @@
+CreateFunction(
+  {
+    name: "GetEpisodesByShowId",
+    body: Query(
+      Lambda(
+        "id",
+        Let(
+          {
+            show: Get(Ref(Collection("Shows"), Var("id"))),
+            title: Select(["data", "name"], Var("show")),
+            url: Select(["data", "asset", "url"], Var("show")),
+            image: Select(["data", "asset", "image"], Var("show")),
+            likes: Select(["data", "likes"], Var("show")),
+            viewed: Select(["data", "viewed"], Var("show"))
+          },
+          If(
+            Equals(Var("url"), ""),
+            {
+              title: Var("title"),
+              image: Var("image"),
+              likes: Var("likes"),
+              viewed: Var("viewed"),
+              episodes: Map(
+                Select(["data", "episodes"], Var("show")),
+                Lambda(
+                  "l",
+                  Let(
+                    { ep: Get(Var("l")) },
+                    {
+                      ref: Var("l"),
+                      title: Select(["data", "name"], Var("ep")),
+                      link: Select(["data", "asset", "url"], Var("ep")),
+                      image: Select(["data", "asset", "image"], Var("ep"))
+                    }
+                  )
+                )
+              )
+            },
+            {
+              title: Var("title"),
+              link: Var("url"),
+              image: Var("image"),
+              likes: Var("likes"),
+              viewed: Var("viewed")
+            }
+          )
+        )
+      )
+    )
+  }  
+)

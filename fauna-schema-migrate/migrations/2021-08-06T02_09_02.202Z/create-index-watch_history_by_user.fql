@@ -1,0 +1,15 @@
+CreateIndex({
+  "name": "watch_history_by_user",
+  "source": Collection("History"),
+  "terms": [{
+    "field": ["data", "show"]
+  }, {
+    "field": ["data", "user"]
+  }],
+  "values": [{
+    "field": ["data", "startTime"],
+    "reverse": true
+  }, {
+    "field": ["ref"]
+  }]
+})

@@ -1,0 +1,14 @@
+CreateRole({
+  "name": "anonymousClient",
+  "privileges": [{
+    "resource": Function("GetPreviews"),
+    "actions": {
+      "call": true
+    }
+  }, {
+    "resource": Function("Login"),
+    "actions": {
+      "call": true
+    }
+  }]
+})

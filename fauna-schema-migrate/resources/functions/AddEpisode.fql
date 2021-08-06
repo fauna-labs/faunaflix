@@ -1,0 +1,46 @@
+CreateFunction(
+  {
+    name: "AddEpisode",
+    body: Query(
+      Lambda(
+        ["name", "url", "image", "categories", "parent"],
+        Let(
+          {
+            parentDoc: If(IsNull(Var("parent")), null, Get(Var("parent")))
+          },
+          Do(
+            Create(Collection("Shows"), {
+              data: {
+                name: Var("name"),
+                asset: { url: Var("url"), image: Var("image") },
+                likes: 0,
+                viewed: 0,
+                previewable: Not(IsNull(Var("parent"))),
+                episodes: [],
+                categories: Var("categories"),
+                parent: Var("parent")
+              }
+            }),
+            If(
+              IsNull(Var("parent")),
+              true,
+              Update(Var("parent"), {
+                data: {
+                  episodes: Append(
+                    [
+                      Select(
+                        ["ref"],
+                        Get(Match(Index("shows_by_name"), Var("name")))
+                      )
+                    ],
+                    Select(["data", "episodes"], Var("parentDoc"))
+                  )
+                }
+              })
+            )
+          )
+        )
+      )
+    )
+  }
+)

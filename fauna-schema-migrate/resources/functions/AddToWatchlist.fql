@@ -1,0 +1,32 @@
+CreateFunction(
+  {
+    name: "AddToWatchlist",
+    body: Query(
+      Lambda(
+        "id",
+        Let(
+          {
+            ref: Ref(Collection("Shows"), Var("id"))
+          },
+          If(
+            Call(Function("InMyWatchlist"), Var("id")),
+            Delete(
+              Select(
+                ["ref"],
+                Get(
+                  Match(Index("no_duplicate_shows_in_watchlist"), [
+                    Call(Function("ExtCurrentIdentity"), []),
+                    Var("ref")
+                  ])
+                )
+              )
+            ),
+            Create(Collection("Watchlist"), {
+              data: { user: Call(Function("ExtCurrentIdentity"), []), show: Var("ref") }
+            })
+          )
+        )
+      )
+    )
+  }  
+)

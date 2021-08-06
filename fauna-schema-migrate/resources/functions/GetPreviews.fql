@@ -1,0 +1,29 @@
+CreateFunction(
+  {
+    name: "GetPreviews",
+    body: Query(
+      Lambda(
+        "",
+        Map(
+          Paginate(Documents(Collection("Previews"))),
+          Lambda(
+            "ref",
+            Let(
+              {
+                ref: Select(["data", "show"], Get(Var("ref"))),
+                doc: Get(Var("ref"))
+              },
+              {
+                name: Select(["data", "name"], Var("doc")),
+                url: Select(["data", "asset", "url"], Var("doc")),
+                image: Select(["data", "asset", "image"], Var("doc")),
+                ref: Select(["ref"], Var("doc"))
+              }
+            )
+          )
+        )
+      )
+    ),
+    role: Role("anonymousUDF")
+  }  
+)
