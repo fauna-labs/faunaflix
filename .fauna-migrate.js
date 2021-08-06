@@ -1,6 +1,6 @@
 module.exports = {
             "directories": {
-                "root": "migrations",
+                "root": "fauna-schema-migrate",
                 "resources": "resources",
                 "migrations": "migrations",
                 "children": "dbs",

@@ -68,6 +68,7 @@ export default {
       const client = new faunadb.Client({
         headers: headers,
         secret: key,
+        domain: process.env.VUE_APP_FAUNA_DOMAIN || 'db.fauna.com' 
       });
       client
         .query(q.Call(q.Function("GetPreviews")))

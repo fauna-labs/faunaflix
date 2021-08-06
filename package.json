@@ -7,7 +7,7 @@
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
     "migrate": "./node_modules/.bin/fauna-schema-migrate apply",
-    "setup": "node ./auna-schema-migrate/final-setup.js"
+    "setup": "node ./fauna-schema-migrate/final-setup.js"
   },
   "dependencies": {
     "@okta/okta-auth-js": "^4.3.0",

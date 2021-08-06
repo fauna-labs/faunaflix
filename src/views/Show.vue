@@ -155,6 +155,7 @@ export default {
       const client = new faunadb.Client({
         headers: headers,
         secret: this.$store.state.faunaSecret,
+        domain: process.env.VUE_APP_FAUNA_DOMAIN || 'db.fauna.com' 
       });
       if (!this.client) {
         this.client = client;

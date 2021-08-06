@@ -5,7 +5,10 @@ const { If, IsEmpty,
   Collection,  Index, Function,
   Let, Select, Var, Call, Paginate, Get, Match, Create } = q
 
-const client = new faunadb.Client({ secret: process.env.FAUNA_ADMIN_KEY })
+const client = new faunadb.Client({
+  secret: process.env.FAUNA_ADMIN_KEY,
+  domain: process.env.VUE_APP_FAUNA_DOMAIN || 'db.fauna.com' 
+})
 
 async function LoadCategories(name) {
   await client.query(

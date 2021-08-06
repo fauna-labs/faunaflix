@@ -63,6 +63,7 @@ export default {
       const client = new faunadb.Client({
         headers: headers,
         secret: process.env.VUE_APP_FAUNA_KEY_ANONYMOUS,
+        domain: process.env.VUE_APP_FAUNA_DOMAIN || 'db.fauna.com' 
       });
       const q = faunadb.query;
       client
