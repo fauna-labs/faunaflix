@@ -77,7 +77,6 @@ npm install
   VUE_APP_FAUNA_KEY_ANONYMOUS=<<key that was generated in the previouis step>>
   VUE_APP_CLIENT_ID=
   VUE_APP_ISSUER=
-  VUE_APP_REDIRECT_URI=/login/callback
   ```
 
 3. Compile and run the spa:
