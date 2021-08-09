@@ -6,13 +6,11 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "migrate": "./node_modules/.bin/fauna-schema-migrate apply",
+    "fauna-schema-migrate": "./node_modules/.bin/fauna-schema-migrate apply",
     "setup": "node ./fauna-schema-migrate/final-setup.js"
   },
   "dependencies": {
-    "@okta/okta-auth-js": "^4.3.0",
-    "@okta/okta-signin-widget": "^5.6.4",
-    "@okta/okta-vue": "^3.0.0",
+    "@auth0/auth0-spa-js": "^1.17.0",
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "faunadb": "^4.3.0",
@@ -31,12 +29,12 @@
     "babel-eslint": "^10.1.0",
     "eslint": "^6.7.2",
     "eslint-plugin-vue": "^6.2.2",
+    "fauna-schema-migrate": "^2.1.2",
     "sass": "^1.32.0",
     "sass-loader": "^10.0.0",
     "vue-cli-plugin-vuetify": "~2.4.0",
     "vue-template-compiler": "^2.6.11",
-    "vuetify-loader": "^1.7.0",
-    "fauna-schema-migrate": "^2.1.2"
+    "vuetify-loader": "^1.7.0"
   },
   "eslintConfig": {
     "root": true,

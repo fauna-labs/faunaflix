@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 
 import Home from '@/views/Home.vue'
 import Login from '@/views/Login.vue'
-import OktaLogin from '@/views/OktaLogin.vue'
+// import OktaLogin from '@/views/OktaLogin.vue'
 import Show from '@/views/Show.vue'
 
 // import { OktaAuth } from '@okta/okta-auth-js'
@@ -37,10 +37,10 @@ const routes = [
     name: 'Login',
     component: Login
   },
-  {
-    path: process.env.VUE_APP_REDIRECT_URI,
-    component: OktaLogin
-  },
+  // {
+  //   path: process.env.VUE_APP_REDIRECT_URI,
+  //   component: OktaLogin
+  // },
   {
     path: '/show/:id',
     name: 'show',

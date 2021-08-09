@@ -1,0 +1,6 @@
+CreateAccessProvider({
+  "name": "Auth0",
+  "issuer": "https://YOURAUTH0DOMAIN.auth0.com/",
+  "jwks_uri": "https://YOURAUTH0DOMAIN.auth0.com/.well-known/jwks.json",
+  "roles": [Role("loggedin"), Role("anonymousClient")]
+})

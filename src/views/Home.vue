@@ -14,11 +14,6 @@
     components: {
       Browse,
       Previews
-    },
-    computed: {
-      authenticated() {
-        return this.$store.state.faunaSecret && this.$store.state.faunaSecret.length > 0;
-      }
     }
   }
 </script>

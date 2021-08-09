@@ -1,0 +1,25 @@
+CreateRole({
+  name: "JIT",
+  privileges: [
+    {
+      resource: Collection("Users"),
+      actions: {
+        read: true,
+        write: false,
+        create: true,
+        delete: false,
+        history_read: false,
+        history_write: false,
+        unrestricted_read: false
+      }
+    },
+    {
+      resource: Index("users_by_email"),
+      actions: {
+        unrestricted_read: false,
+        read: true
+      }
+    }
+  ],
+  membership: []
+})

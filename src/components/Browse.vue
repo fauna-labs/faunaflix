@@ -39,7 +39,7 @@ export default {
   data: function () {
     return {
       categories: [],
-      loading: true,
+      loading: true
     };
   },
   computed: {
@@ -50,11 +50,13 @@ export default {
   components: {
     Shows,
   },
-  mounted() {
+  async mounted() {
+    if (this.$auth.auth0Client) {
+      // using external authentication. setting the bearer token to the Auth0 AccessToken
+      const token = await this.$auth.getTokenSilently();
+      this.$store.commit("setSecret", token);
+    }
     this.loadCategories();
-  },
-  watch: {
-    faunaUserToken: "loadCategories",
   },
   methods: {
     loadCategories() {

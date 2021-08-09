@@ -1,4 +1,17 @@
 CreateFunction({
   "name": "ExtCurrentIdentity",
-  "body": Query(Lambda([], If(IsRef(CurrentIdentity()), CurrentIdentity(), Select(["ref"], Get(Match(Index("users_by_email"), CurrentIdentity()))))))
+  "body": Query(Lambda([], Let([{
+    "currentIdentity": CurrentIdentity()
+  }], If(IsRef(Var("currentIdentity")), Var("currentIdentity"), Let([{
+    "extIdentity": Var("currentIdentity")
+  }, {
+    "match": Match(Index("users_by_email"), Var("extIdentity"))
+  }, {
+    "isEmpty": IsEmpty(Paginate(Var("match")))
+  }], If(Var("isEmpty"), Select(["ref"], Create(Collection("Users"), {
+    "data": {
+      "email": Var("extIdentity")
+    }
+  })), Select(["ref"], Get(Var("match"))))))))),
+  "role": Role('JIT')
 })

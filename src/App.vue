@@ -20,10 +20,17 @@
         </div>
 
         <v-spacer></v-spacer>
-        <v-btn text v-if="!authenticated">
-          <router-link class="white--text" to="/login">Login</router-link>
-          <v-icon class="ml-1">mdi-account-arrow-left</v-icon>
-        </v-btn>
+
+        <div v-if="!authenticated">
+          <v-btn v-if="$auth.auth0Client" text @click="auth0Login">
+            Login
+            <v-icon class="ml-1">mdi-account-arrow-left</v-icon>
+          </v-btn>  
+          <v-btn v-else text>
+            <router-link class="white--text" to="/login">Login</router-link>
+            <v-icon class="ml-1">mdi-account-arrow-left</v-icon>
+          </v-btn>
+        </div>
         <v-btn text v-else @click="logout">
           Logout
           <v-icon class="ml-1">mdi-account-arrow-right</v-icon>
@@ -47,10 +54,15 @@ export default {
   },
   computed: {
     authenticated() {
-      return this.$store.state.faunaSecret && this.$store.state.faunaSecret.length > 0;
+      return this.$auth.auth0Client
+        ? this.$auth.isAuthenticated
+        : this.$store.state.faunaSecret && this.$store.state.faunaSecret.length > 0;
     }
   },
   methods: {
+    auth0Login() {
+      this.$auth.loginWithRedirect();
+    },
     async logout() {
       const headers = { "X-Fauna-Source": "faunaflix" };
       const client = new faunadb.Client({
@@ -61,7 +73,12 @@ export default {
       const q = faunadb.query;
       const res = await client.query(q.Logout(true));
       this.$store.commit("logout");
-      // await this.$auth.signOut();
+
+      if (this.$auth.auth0Client) {
+        this.$auth.logout({
+          returnTo: window.location.origin,
+        });
+      }
     }
   }
 };

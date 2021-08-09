@@ -48,7 +48,7 @@ npm install
 2. Look in [fauna-schema-migrate](/fauna-schema-migrate) folder and notice the contents in the `resources` folder. These are all the Collections, Indexes, Functions and Roles that we'll be creating using the [fauna-schema-migrate](https://github.com/fauna-labs/fauna-schema-migrate) tool (which is already installed when you ran `npm install` earlier). We have pre-generated the migrations in the `migrations` folder; Simply run the script command below to run these migrations:
 
   ```
-  npm run migrate
+  npm run fauna-schema-migrate
   ```
 
 3. After resources are created from the migration step above, we need to populate some documents with operational data. Run the setup script:
