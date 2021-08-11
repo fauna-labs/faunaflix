@@ -163,19 +163,19 @@ const episodes = [
     parent: "Magic Schoolbus"
   },
   {
-    name: "Monkey Mechanic Ep. 2",
-    url: "https://www.youtube.com/embed/ZFIqtlcDYzM",
-    image: "http://i3.ytimg.com/vi/ZFIqtlcDYzM/maxresdefault.jpg",
-    categories: ["Animation", "Ages 2-5", "New Releases", "Popular"],
-    parent: "Monkey Mechanic"
-  },
-  {
     name: "Monkey Mechanic Ep. 1",
     url: "https://www.youtube.com/embed/tUTyS0Bz4Ho",
     image: "http://i3.ytimg.com/vi/tUTyS0Bz4Ho/maxresdefault.jpg",
     categories: ["Animation", "Ages 2-5", "New Releases", "Popular"],
     parent: "Monkey Mechanic"
   },
+  {
+    name: "Monkey Mechanic Ep. 2",
+    url: "https://www.youtube.com/embed/ZFIqtlcDYzM",
+    image: "http://i3.ytimg.com/vi/ZFIqtlcDYzM/maxresdefault.jpg",
+    categories: ["Animation", "Ages 2-5", "New Releases", "Popular"],
+    parent: "Monkey Mechanic"
+  },  
   {
     name: "Monkey Mechanic Ep. 3",
     url: "https://www.youtube.com/embed/w1IbqGsKUsM",
@@ -261,16 +261,16 @@ const episodes = [
     parent: "The Electric Company"
   },
   {
-    name: "Fraggle Rock Ep. 2",
-    url: "https://www.youtube.com/embed/WF5WTN0v1g0",
-    image: "http://i3.ytimg.com/vi/WF5WTN0v1g0/hqdefault.jpg",
+    name: "Fraggle Rock Ep. 1",
+    url: "https://www.youtube.com/embed/PECSi2deb1g",
+    image: "http://i3.ytimg.com/vi/KLQS6xo40kI/maxresdefault.jpg",
     categories: ["Ages 2-5", "All Ages"],
     parent: "Fraggle Rock"
   },
   {
-    name: "Fraggle Rock Ep. 1",
-    url: "https://www.youtube.com/embed/PECSi2deb1g",
-    image: "http://i3.ytimg.com/vi/KLQS6xo40kI/maxresdefault.jpg",
+    name: "Fraggle Rock Ep. 2",
+    url: "https://www.youtube.com/embed/WF5WTN0v1g0",
+    image: "http://i3.ytimg.com/vi/WF5WTN0v1g0/hqdefault.jpg",
     categories: ["Ages 2-5", "All Ages"],
     parent: "Fraggle Rock"
   },
@@ -364,18 +364,18 @@ const episodes = [
     image: "http://i3.ytimg.com/vi/_BcBHTHvOVo/maxresdefault.jpg",
     categories: ["Animation", "Ages 2-5", "All Ages", "Popular"],
     parent: "Cocomelon"
-  },  
-  {
-    name: "Carl's Carwash Ep. 2",
-    url: "https://www.youtube.com/embed/gEupWLu1U6U",
-    image: "http://i3.ytimg.com/vi/gEupWLu1U6U/maxresdefault.jpg",
-    categories: ["Animation", "Ages 2-5", "Popular"],
-    parent: "Carl's Carwash"
   },
   {
     name: "Carl's Carwash Ep. 1",
     url: "https://www.youtube.com/embed/U6GbA2anX4o",
     image: "http://i3.ytimg.com/vi/U6GbA2anX4o/maxresdefault.jpg",
+    categories: ["Animation", "Ages 2-5", "Popular"],
+    parent: "Carl's Carwash"
+  },    
+  {
+    name: "Carl's Carwash Ep. 2",
+    url: "https://www.youtube.com/embed/gEupWLu1U6U",
+    image: "http://i3.ytimg.com/vi/gEupWLu1U6U/maxresdefault.jpg",
     categories: ["Animation", "Ages 2-5", "Popular"],
     parent: "Carl's Carwash"
   },

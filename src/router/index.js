@@ -26,6 +26,7 @@ const routes = [
   {
     path: '/episode/:id',
     name: 'episode',
+    component: Show,
   }    
 ]
 
