@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'

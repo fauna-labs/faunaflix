@@ -1,8 +1,6 @@
 This repository contains unofficial patterns, sample code, or tools to help developers build more effectively with [Fauna][fauna]. All [Fauna Labs][fauna-labs] repositories are provided “as-is” and without support. By using this repository or its contents, you agree that this repository may never be officially supported and moved to the [Fauna organization][fauna-organization].
 
-[fauna]: https://www.fauna.com/
-[fauna-labs]: https://github.com/fauna-labs
-[fauna-organization]: https://github.com/fauna
+---
 
 # faunaflix
 faunaflix is *Fauna in a nutshell*, delivered in the form a demo app that mimicks a video streaming service for kids. 
@@ -146,3 +144,7 @@ VUE_APP_FAUNA_ACCESS_PROVIDER_AUD=<<The "Audience" value copied from the "Access
 7. Restart the faunaflix SPA. When you click "Login" you'll be redirected to Auth0 to login
    (Be sure to have created a user you can authenticate with. This is a different user than the Admin
    user you use to login into your Auth0 admin dashboard)
+
+[fauna]: https://www.fauna.com/
+[fauna-labs]: https://github.com/fauna-labs
+[fauna-organization]: https://github.com/fauna

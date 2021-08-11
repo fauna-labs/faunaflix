@@ -7,8 +7,7 @@ security vulnerabilities:
 
 | Version | Supported          |
 | ------- | ------------------ |
-| <SEMVER>| :white_check_mark: |
-| <SEMVER>| :x:                |
+| 0.1.0 | :x:                |
 
 End of life (EOL) dates for security support will be posted here.
 
