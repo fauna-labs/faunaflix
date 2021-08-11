@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 import Vue from "vue";
 import createAuth0Client from "@auth0/auth0-spa-js";
 

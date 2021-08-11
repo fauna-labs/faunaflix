@@ -1,3 +1,7 @@
+<!--
+Copyright Fauna, Inc.
+SPDX-License-Identifier: MIT-0
+-->
 <template>
   <v-container fluid>
     <v-row>

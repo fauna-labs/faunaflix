@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 CreateFunction({
   "name": "Liked",
   "body": Query(Lambda("id", IsNonEmpty(Select(["data"], Paginate(Match(Index("no_duplicate_likes"), [Call(Function("ExtCurrentIdentity"), []), Ref(Collection("Shows"), Var("id"))]))))))

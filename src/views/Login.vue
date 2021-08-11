@@ -1,3 +1,7 @@
+<!--
+Copyright Fauna, Inc.
+SPDX-License-Identifier: MIT-0
+-->
 <style scoped>
 .login-bg {
   background-image: url("https://images-na.ssl-images-amazon.com/images/S/sgp-catalog-images/region_US/viacom-NICK_SPONGEBOB_SEASON_006-Full-Image_GalleryBackground-en-US-1611213234278._RI_.jpg");
