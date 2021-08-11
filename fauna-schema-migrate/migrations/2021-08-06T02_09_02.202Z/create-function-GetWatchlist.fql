@@ -1,3 +1,6 @@
+// Copyright Fauna, Inc.
+// SPDX-License-Identifier: MIT-0
+
 CreateFunction({
   "name": "GetWatchlist",
   "body": Query(Lambda("", Map(Paginate(Match(Index("users_watchlist"), Call(Function("ExtCurrentIdentity"), []))), Lambda(["show", "ref"], Get(Var("show"))))))
