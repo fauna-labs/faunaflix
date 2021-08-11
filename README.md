@@ -14,8 +14,6 @@ by referencing YouTube url's
 
 ![faunaflix](/images/faunaflix.png)
 :bulb: Fauna is a document database that supports joins!
-:bulb: ACID properties allows us to easily 
-
 
 ## Project setup
 
@@ -101,7 +99,7 @@ A test user was created when you ran the `setup` script:
 * password: `fauna123#`
 
 You can also create additional users:
-```json
+```
 Create(
   Collection("Users"),
   {
