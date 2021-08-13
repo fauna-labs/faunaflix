@@ -21,19 +21,25 @@ by referencing YouTube url's
 
 ## Project setup
 
-### Step 0. Install Dependencies
+### Step 0. Clone the repo
+```
+git clone https://github.com/fauna-labs/faunaflix.git
+cd faunaflix
+```
+
+### Step 1. Install dependencies
 ```
 npm install
 ```
 
-### Step 1. Create a database and obtain the "Admin Key" for the setup scripts (in the next step) to access the database.
+### Step 2. Create a database and obtain the "Admin Key" for the setup scripts (in the next step) to access the database.
 1. Signin to Fauna. [Register](https://dashboard.fauna.com/accounts/register) for a free for life developer account
    if you haven't done so already.
 2. Create a database: 
 
   <img src="images/createdb.png" alt="drawing" width="600"/>
 
-   * Specify a name for your database
+   * Name your database `faunaflix`
    * Choose the "Classic" Region Group
 
 3. Click [Security] in the left sidebar, then click the [New key] button.
@@ -44,8 +50,7 @@ npm install
    * For the "Role" field, leave it as "Admin". Optionally, add a key name. 
    * Next, click [Save] and copy the key’s secret displayed on the next page. **It is never displayed again.**
 
-
-### Step 2. Run "migrations"
+### Step 3. Run "migrations"
 
 1. Set the `FAUNA_ADMIN_KEY` environment variable to the key you just generated above:
   ```
@@ -72,7 +77,7 @@ npm install
   npm run setup
   ```
 
-### Step 3. Compile and run the SPA
+### Step 4. Compile and run the Single-Page Application (SPA)
 
 1. The Admin Key previously generated should only be used to setup Fauna resources. At this point you don't need it anymore.
    However, the SPA needs a different Fauna key in order to work. This key is one that's scoped to only allow access to
@@ -92,17 +97,22 @@ npm install
   VUE_APP_FAUNA_KEY_ANONYMOUS=<<key that was generated in the previouis step>>
   ```
 
-3. Compile and run the spa:
+3. Compile and run the SPA:
   ```
   npm run serve
   ```
 
-### Step 4. Login
+Your local webserver is now running the app. Visit http://10.0.0.173:8080/ to
+check it out.
+
+### Step 5. Log in
+There's a **LOGIN** link in the upper right corner of the screen.
 A test user was created when you ran the `setup` script:
 * username: `flixuser@mailinator.com`
 * password: `fauna123#`
 
-You can also create additional users:
+You can also create additional users by executing the following command in the
+**Shell** section of the [Fauna Dashboard](https://dashboard.fauna.com):
 ```
 Create(
   Collection("Users"),
