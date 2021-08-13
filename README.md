@@ -63,7 +63,7 @@ npm install
    (which should already be installed when you ran `npm install` earlier).
    In the [fauna-schema-migrate/migrations](/fauna-schema-migrate/migrations) folder,
    migrations are already pre-generated (from the files in `resources`).
-   So simply run the script command below to run them:
+   So simply run the script command below to apply them:
 
   ```
   npm run fauna-schema-migrate
@@ -102,7 +102,7 @@ npm install
   npm run serve
   ```
 
-Your local webserver is now running the app. Visit http://10.0.0.173:8080/ to
+Your local webserver is now running the app. Visit http://localhost:8080/ to
 check it out.
 
 ### Step 5. Log in
