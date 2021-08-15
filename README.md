@@ -5,7 +5,7 @@ This repository contains unofficial patterns, sample code, or tools to help deve
 # faunaflix
 faunaflix is *Fauna in a nutshell*, delivered in the form a demo app that mimicks a video streaming service for kids. 
 We picked a streaming service to showcase Fauna because we use these services everyday but probably don't realize
-the database implementations that go into building such a product. With faunaflix, we've found is great way to
+the database implementations that go into building such a product. With faunaflix, we've found a great way to
 highlight some key Fauna properties and functionality, such as:
 * Flexible data modeling – including relations/joins
 * ACID transactions
@@ -39,8 +39,9 @@ npm install
 
   <img src="images/createdb.png" alt="drawing" width="600"/>
 
-   * Name your database `faunaflix`
-   * Choose the "Classic" Region Group
+   * Name your database, e.g. `faunaflix`
+   * Choose a [Region Group](https://docs.fauna.com/fauna/current/api/fql/region_groups#how-to-use-region-groups)
+     * Hint: If you're not sure, pick "Classic" 
 
 3. Click [Security] in the left sidebar, then click the [New key] button.
 
@@ -57,7 +58,14 @@ npm install
   export FAUNA_ADMIN_KEY=<<admin key>>
   ```
 
-2. Look in the [fauna-schema-migrate/resources](/fauna-schema-migrate/resources) folder and peruse the contents. 
+2. Set the `FAUNADB_DOMAIN` environment variable to one of the following values: `db.fauna.com` or `db.eu.fauna.com` 
+  or `db.us.fauna.com` depending on which [Region Group](https://docs.fauna.com/fauna/current/api/fql/region_groups#how-to-use-region-groups)
+  you created your database in.
+  ```
+  export FAUNADB_DOMAIN=<<db.fauna.com OR db.eu.fauna.com OR db.us.fauna.com>>
+  ```
+
+3. Look in the [fauna-schema-migrate/resources](/fauna-schema-migrate/resources) folder and peruse the contents. 
    These are all the Collections, Indexes, Functions and Roles that we'll be creating using the
    [fauna-schema-migrate](https://github.com/fauna-labs/fauna-schema-migrate) tool
    (which should already be installed when you ran `npm install` earlier).
@@ -95,7 +103,11 @@ npm install
 2. Create a file `.env.development.local` and populate with these values:
   ```
   VUE_APP_FAUNA_KEY_ANONYMOUS=<<key that was generated in the previouis step>>
+  VUE_APP_FAUNA_DOMAIN=<<db.fauna.com OR db.eu.fauna.com OR db.us.fauna.com>>
   ```
+  * For `VUE_APP_FAUNA_DOMAIN`, enter `db.fauna.com` or `db.eu.fauna.com` or `db.us.fauna.com` depending on which
+  [Region Group](https://docs.fauna.com/fauna/current/api/fql/region_groups#how-to-use-region-groups)
+  you created your database in.
 
 3. Compile and run the SPA:
   ```
