@@ -10,7 +10,7 @@ const { If, IsEmpty,
 
 const client = new faunadb.Client({
   secret: process.env.FAUNA_ADMIN_KEY,
-  domain: process.env.VUE_APP_FAUNA_DOMAIN || 'db.fauna.com' 
+  domain: process.env.FAUNADB_DOMAIN || 'db.fauna.com' 
 })
 
 async function LoadCategories(name) {
